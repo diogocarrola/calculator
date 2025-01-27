@@ -12,6 +12,12 @@ function appendToDisplay(value) {
     }
 }
 
+function inputDecimal() {
+    if (!display.value.includes('.')) {
+        display.value += '.';
+    }
+}
+
 function clearDisplay() {
     display.value = '0';
     firstOperand = null;
@@ -84,6 +90,8 @@ document.querySelectorAll('.btn').forEach(button => {
             calculateResult();
         } else if (value === 'C') {
             clearDisplay();
+        } else if (value === '.') {
+            inputDecimal();
         }
     });
 });
