@@ -18,6 +18,10 @@ function inputDecimal() {
     }
 }
 
+function backspace() {
+    display.value = display.value.slice(0, -1) || '0';
+}
+
 function clearDisplay() {
     display.value = '0';
     firstOperand = null;
@@ -92,6 +96,8 @@ document.querySelectorAll('.btn').forEach(button => {
             clearDisplay();
         } else if (value === '.') {
             inputDecimal();
+        } else if (value === '⌫') {
+            backspace();
         }
     });
 });
