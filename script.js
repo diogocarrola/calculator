@@ -101,3 +101,22 @@ document.querySelectorAll('.btn').forEach(button => {
         }
     });
 });
+
+// Keyboard support
+document.addEventListener('keydown', (event) => {
+    const key = event.key;
+
+    if (/\d/.test(key)) {
+        appendToDisplay(key);
+    } else if (['+', '-', '*', '/'].includes(key)) {
+        handleOperator(key);
+    } else if (key === 'Enter' || key === '=') {
+        calculateResult();
+    } else if (key === 'Backspace') {
+        backspace();
+    } else if (key === '.') {
+        inputDecimal();
+    } else if (key === 'Escape') {
+        clearDisplay();
+    }
+});
